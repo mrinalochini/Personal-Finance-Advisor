@@ -6,7 +6,7 @@ import streamlit as st
 API_BASE = os.getenv("API_BASE_URL", "http://127.0.0.1:3000")
 
 st.set_page_config(
-    page_title="Guided Wealth",
+    page_title="Personal Finance Advisor",
     page_icon="💰",
     layout="wide",
     initial_sidebar_state="expanded",
