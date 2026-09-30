@@ -14,7 +14,7 @@ API_BASE = os.getenv(
 
 
 st.set_page_config(
-    page_title="Personal Finance Advisor",
+    page_title="Guided Wealth",
     page_icon="💰",
     layout="wide",
     initial_sidebar_state="expanded",
