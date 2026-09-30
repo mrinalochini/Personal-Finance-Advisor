@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from models import Transaction
 from llm_client import ask_gemini_with_tools
 
-SYSTEM_PROMPT = """
+SYstEM_PROMPT = """
 You are a friendly, practical personal finance advisor chatbot.
 
 Use the get_spending_by_category tool to retrieve the user's real financial numbers.
@@ -27,7 +27,7 @@ TOOLS = [
         "parameters": {
             "type": "OBJECT",
             "properties": {
-                "category": {"type": "STRING", "description": "e.g. 'food', 'shopping', 'entertainment'"},
+                "category": {"type": "stRING", "description": "e.g. 'food', 'shopping', 'entertainment'"},
             },
             "required": ["category"],
         },
@@ -59,7 +59,7 @@ def make_tool_executor(db: Session, user_id: int):
 
 def ask_finance_bot(question: str, db: Session, user_id: int) -> str:
     return ask_gemini_with_tools(
-        system_prompt=SYSTEM_PROMPT,
+        system_prompt=SYstEM_PROMPT,
         user_message=question,
         tools=TOOLS,
         tool_executor=make_tool_executor(db, user_id),
