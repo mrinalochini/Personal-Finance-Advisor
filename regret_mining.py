@@ -72,11 +72,18 @@ def suggested_budgets(user_id: int = Depends(get_current_user), db: Session = De
             phrasing = ask_gemini(
                 "You write one short, encouraging sentence suggesting a monthly budget cap "
                 "based on the user's own past regretted purchases. No preamble, just the sentence.",
-                f"Category: {category}. Average regretted purchase: ${avg:.2f}. Suggested cap: ${suggested_limit}.",
+                f"Category: {category}. Average regretted purchase: ₹{avg:.2f}. Suggested cap: ₹{suggested_limit}.",
                 max_tokens=100,
             )
         except Exception as err:
             raise HTTPException(502, f"Couldn't reach the AI service: {err}")
 
-        suggestions.append({"category": category,"suggestedLimit": suggested_limit,"phrasing": (phrasing or f"Consider setting a monthly {category} budget of {suggested_limit}.").strip()})
+        suggestions.append({
+    "category": category,
+    "suggestedLimit": suggested_limit,
+    "phrasing": (
+        phrasing or
+        f"Consider setting a monthly {category} budget of ₹{suggested_limit}."
+    ).strip()
+})
     return {"suggestions": suggestions}
