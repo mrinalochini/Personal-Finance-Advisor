@@ -29,55 +29,301 @@ st.markdown(
     """
     <style>
 
+    /* =========================================================
+       GUIDED WEALTH — MODERN COLORFUL THEME
+       ========================================================= */
+
+    /* ---------- Main Application ---------- */
+
     .stApp {
-        background: #f4ead8;
-        color: #17233f;
+        background:
+            radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.18), transparent 28%),
+            radial-gradient(circle at 90% 15%, rgba(14, 165, 233, 0.16), transparent 25%),
+            radial-gradient(circle at 80% 90%, rgba(236, 72, 153, 0.12), transparent 30%),
+            linear-gradient(135deg, #080b1a 0%, #10152f 45%, #0b1024 100%);
+        color: #f8fafc;
     }
 
     .block-container {
         max-width: 1250px;
-        padding-top: 2rem;
+        padding-top: 2.5rem;
+        padding-bottom: 3rem;
     }
 
-    h1, h2, h3 {
-        color: #17233f;
+    /* ---------- Typography ---------- */
+
+    h1 {
+        color: #ffffff !important;
+        font-weight: 800 !important;
+        letter-spacing: -1px;
     }
 
-    .card {
-        background: #fbf7ef;
-        border: 1px solid #dfd2bd;
-        border-radius: 18px;
-        padding: 22px;
-        margin-bottom: 16px;
+    h2 {
+        color: #f8fafc !important;
+        font-weight: 750 !important;
     }
 
-    .metric-card {
-        background: #fbf7ef;
-        border: 1px solid #dfd2bd;
-        border-radius: 18px;
-        padding: 18px;
-        text-align: center;
+    h3 {
+        color: #e2e8f0 !important;
+        font-weight: 700 !important;
+    }
+
+    p, label, .stMarkdown {
+        color: #cbd5e1;
     }
 
     .small {
-        color: #65708a;
+        color: #94a3b8;
         font-size: 0.9rem;
     }
 
-    .coach {
-        background: #e8e2f4;
-        border-left: 5px solid #2f315f;
-        border-radius: 12px;
-        padding: 15px;
+    /* ---------- Glass Cards ---------- */
+
+    .card {
+        background: linear-gradient(
+            145deg,
+            rgba(30, 41, 78, 0.88),
+            rgba(15, 23, 52, 0.82)
+        );
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 22px;
+        padding: 24px;
+        margin-bottom: 18px;
+        box-shadow:
+            0 15px 35px rgba(0, 0, 0, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(14px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow:
+            0 20px 45px rgba(0, 0, 0, 0.35),
+            0 0 25px rgba(124, 58, 237, 0.12);
+    }
+
+    /* ---------- Metric Cards ---------- */
+
+    .metric-card {
+        background:
+            linear-gradient(
+                135deg,
+                rgba(124, 58, 237, 0.22),
+                rgba(37, 99, 235, 0.15)
+            );
+        border: 1px solid rgba(167, 139, 250, 0.28);
+        border-radius: 22px;
+        padding: 24px;
+        text-align: center;
+        box-shadow:
+            0 12px 30px rgba(0, 0, 0, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(12px);
+    }
+
+    .metric-card h3 {
+        font-size: 2rem;
+        margin-bottom: 5px;
+        background: linear-gradient(90deg, #a78bfa, #38bdf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* ---------- AI Coach ---------- */
+
+    .coach {
+        background:
+            linear-gradient(
+                135deg,
+                rgba(124, 58, 237, 0.22),
+                rgba(14, 165, 233, 0.16)
+            );
+        border-left: 5px solid #8b5cf6;
+        border-radius: 16px;
+        padding: 18px 20px;
+        margin: 12px 0;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ---------- Badges ---------- */
 
     .badge {
         display: inline-block;
-        background: #e8e2f4;
-        color: #2f315f;
-        padding: 5px 10px;
+        background: linear-gradient(90deg, #7c3aed, #2563eb);
+        color: white;
+        padding: 6px 13px;
         border-radius: 999px;
         font-size: 0.8rem;
+        font-weight: 700;
+        box-shadow: 0 5px 15px rgba(124, 58, 237, 0.25);
+    }
+
+    /* ---------- Buttons ---------- */
+
+    .stButton > button {
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid rgba(167, 139, 250, 0.25);
+        background: linear-gradient(135deg, #7c3aed, #2563eb);
+        color: white;
+        font-weight: 700;
+        padding: 0.65rem 1rem;
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+        transition: all 0.2s ease;
+    }
+
+    .stButton > button:hover {
+        border-color: #a78bfa;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(124, 58, 237, 0.35);
+    }
+
+    /* ---------- Inputs ---------- */
+
+    .stTextInput input,
+    .stNumberInput input,
+    .stTextArea textarea {
+        background: rgba(15, 23, 42, 0.75) !important;
+        color: #f8fafc !important;
+        border: 1px solid rgba(148, 163, 184, 0.25) !important;
+        border-radius: 12px !important;
+    }
+
+    .stTextInput input:focus,
+    .stNumberInput input:focus,
+    .stTextArea textarea:focus {
+        border-color: #8b5cf6 !important;
+        box-shadow: 0 0 0 1px #8b5cf6 !important;
+    }
+
+    /* ---------- Select Boxes ---------- */
+
+    .stSelectbox > div > div {
+        background: rgba(15, 23, 42, 0.8);
+        border-radius: 12px;
+        border-color: rgba(148, 163, 184, 0.25);
+        color: white;
+    }
+
+    /* ---------- Progress Bars ---------- */
+
+    .stProgress > div > div > div > div {
+        background: linear-gradient(90deg, #7c3aed, #2563eb, #06b6d4);
+        border-radius: 999px;
+    }
+
+    .stProgress > div > div {
+        background: rgba(148, 163, 184, 0.15);
+        border-radius: 999px;
+    }
+
+    /* ---------- Sidebar ---------- */
+
+    [data-testid="stSidebar"] {
+        background:
+            radial-gradient(
+                circle at 20% 10%,
+                rgba(124, 58, 237, 0.22),
+                transparent 30%
+            ),
+            linear-gradient(180deg, #0b1024 0%, #080b18 100%);
+        border-right: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3 {
+        color: white !important;
+    }
+
+    [data-testid="stSidebar"] .stButton > button {
+        background: rgba(30, 41, 78, 0.7);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        box-shadow: none;
+        text-align: left;
+    }
+
+    [data-testid="stSidebar"] .stButton > button:hover {
+        background: linear-gradient(
+            90deg,
+            rgba(124, 58, 237, 0.55),
+            rgba(37, 99, 235, 0.45)
+        );
+        border-color: rgba(167, 139, 250, 0.35);
+    }
+
+    /* ---------- Tabs ---------- */
+
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+        background: rgba(15, 23, 42, 0.55);
+        padding: 7px;
+        border-radius: 14px;
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        border-radius: 10px;
+        color: #94a3b8;
+        padding: 8px 18px;
+    }
+
+    .stTabs [aria-selected="true"] {
+        background: linear-gradient(135deg, #7c3aed, #2563eb);
+        color: white !important;
+    }
+
+    /* ---------- Expanders ---------- */
+
+    .streamlit-expanderHeader {
+        background: rgba(30, 41, 78, 0.65);
+        border-radius: 14px;
+        color: #f8fafc !important;
+        font-weight: 700;
+    }
+
+    /* ---------- Alerts / Info Boxes ---------- */
+
+    [data-testid="stAlert"] {
+        border-radius: 14px;
+        border: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    /* ---------- Chat ---------- */
+
+    [data-testid="stChatMessage"] {
+        background: rgba(30, 41, 78, 0.55);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        border-radius: 18px;
+        margin-bottom: 10px;
+    }
+
+    /* ---------- Dividers ---------- */
+
+    hr {
+        border-color: rgba(148, 163, 184, 0.12) !important;
+    }
+
+    /* ---------- Scrollbar ---------- */
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #080b18;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(#7c3aed, #2563eb);
+        border-radius: 10px;
+    }
+
+    /* ---------- Selection ---------- */
+
+    ::selection {
+        background: rgba(139, 92, 246, 0.45);
+        color: white;
     }
 
     </style>
@@ -1310,23 +1556,8 @@ def fire_drills():
 
 
     if scenario:
-
-        st.markdown(
-            f"""
-            <div class="card">
-
-                <h3>
-                    Scenario
-                </h3>
-
-                <p>
-                    {scenario.get("prompt", "")}
-                </p>
-
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        st.markdown("### Scenario")
+        st.info(scenario.get("prompt", ""))
 
 
         # ----------------------------------------------------
